@@ -53,6 +53,7 @@ QString BoardWrapper::aimove()
 void BoardWrapper::resetGame(){
     gameBoard.initBoard();
     updatePiecesPositions();
+    emit stateChanged();
 }
 
 QString BoardWrapper::currentTurn(){

@@ -30,9 +30,12 @@ bool NetworkManager::host(int port) {
 
 void NetworkManager::onNewConnection() {
     socket = server->nextPendingConnection();
+    connect(socket, &QTcpSocket::disconnected, this, &NetworkManager::onDisconnected);
+    connect(socket, &QTcpSocket::errorOccurred, this, &NetworkManager::onDisconnected);
     connect(socket, &QTcpSocket::readyRead, this, &NetworkManager::onReadyRead);
     qInfo("Client connected.");
     emit connected();
+    emit connectionStatusChanged();
 }
 
 bool NetworkManager::join(const QString& ip, int port) {
@@ -40,6 +43,9 @@ bool NetworkManager::join(const QString& ip, int port) {
     connect(socket, &QTcpSocket::readyRead, this, &NetworkManager::onReadyRead);
     connect(socket, &QTcpSocket::connected, this, &NetworkManager::connected);
     socket->connectToHost(ip, port);
+    connect(socket, &QTcpSocket::disconnected, this, &NetworkManager::onDisconnected);
+    connect(socket, &QTcpSocket::errorOccurred, this, &NetworkManager::onDisconnected);
+    emit connectionStatusChanged();
     return true; // Success will be notified via `connected()` signal
 }
 
@@ -64,6 +70,26 @@ bool NetworkManager::sendAll(const QString& msg) {
         totalSent += sent;
     }
     return socket->flush();
+}
+
+bool NetworkManager::connectionStatus() {
+    return socket && socket->state() == QAbstractSocket::ConnectedState;
+}
+
+void NetworkManager::disconnect() {
+    if (socket) {
+        socket->disconnectFromHost();
+        if (socket->state() != QAbstractSocket::UnconnectedState) {
+            socket->waitForDisconnected(3000);  // optional timeout
+        }
+    }
+
+    if (server) {
+        server->close();
+    }
+
+    qInfo() << "Disconnected cleanly.";
+    emit disconnected();
 }
 
 void NetworkManager::onReadyRead() {
@@ -92,3 +118,13 @@ void NetworkManager::onReadyRead() {
         }
     }
 }
+
+void NetworkManager::onDisconnected() {
+    qInfo() << "Peer disconnected.";
+    socket->close();
+    emit disconnected();
+    emit connectionStatusChanged();
+}
+
+
+

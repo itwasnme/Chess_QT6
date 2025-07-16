@@ -14,6 +14,11 @@ Item {
             loadingScreen.visible = false
             chessBoard.visible = true
         }
+        onDisconnected: {
+            loadingScreen.visible = true
+            chessBoard.visible = false
+            gameBoard.resetGame()
+        }
     }
     id: root
     width: Screen.width * 0.5
@@ -67,6 +72,8 @@ Item {
                 hoverEnabled: true
                 onClicked: {
                     console.log("Handle going back to main menu")
+                    gameBoard.resetGame()
+                    gameBoard.networkManager.disconnect()
                     goBackToMenu()
 
                 }
@@ -109,6 +116,7 @@ Item {
                     onClicked: {
                         console.log("Handle going back to main menu")
                         gameBoard.resetGame()
+                        gameBoard.networkManager.disconnect()
                         root.goBackToMenu()
                     }
                 }
@@ -169,7 +177,7 @@ Item {
 
                     MouseArea {
                         id: currentSquare
-                        visible: gameBoard.turn
+                        visible: gameBoard.turn && !gameBoard.promotionFlag
                         anchors.fill: parent
                         enabled: gameBoard.end ? false : true
                         onClicked: {
@@ -219,7 +227,7 @@ Item {
                 id: feedback
                 visible: !gameBoard.promotionFlag
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: gameFeedback === "" ? gameBoard.turn : gameFeedback
+                text: gameFeedback === "" ? gameBoard.Sturn : gameFeedback
                 color: "white"
                 font.bold: true
                 bottomPadding: 5
@@ -230,7 +238,7 @@ Item {
             // Promotion options when promotion flag is true
             Row {
                 id: promotionRow
-                visible: gameBoard.promotionFlag //Need to handle promotion communication
+                visible: gameBoard.promotionFlag && !gameBoard.turn //Need to handle promotion communication
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: parent.width * 0.05
 

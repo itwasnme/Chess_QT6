@@ -19,16 +19,23 @@ public:
 
     Q_INVOKABLE bool sendMove(int from, int to);                // Send move
     Q_INVOKABLE bool sendPromotion(int promo);                // Send Promotion
+    Q_INVOKABLE void disconnect();
+
+    Q_PROPERTY(bool connectionUP READ connectionStatus NOTIFY connectionStatusChanged)
+    bool connectionStatus();
 
 signals:
     void connected();                               // Emitted when connected (host or client)
     void moveReceived(int from, int to);            // Emitted when a move is received
     void promotionReceived(int promo);              // Emitted when pomotion choice is received
+    void disconnected();
+    void connectionStatusChanged();
 
 
 private slots:
     void onNewConnection();
     void onReadyRead();                             // Handle incoming data
+    void onDisconnected();
 
 private:
     Role role;

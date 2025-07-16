@@ -43,6 +43,7 @@ class BoardWrapper : public QObject {
     Q_PROPERTY(bool end READ isGameOver NOTIFY stateChanged)
     Q_PROPERTY(bool promotionFlag READ promotionFlag NOTIFY stateChanged)
     Q_PROPERTY(NetworkManager* networkManager READ getNetworkManager NOTIFY networkManagerChanged)
+    Q_PROPERTY(QString Sturn READ currentTurnStatus NOTIFY stateChanged)
 
 public:
     explicit BoardWrapper(QObject* parent = nullptr);
@@ -56,11 +57,12 @@ public:
     Q_INVOKABLE bool startHosting(int port);
     Q_INVOKABLE bool joinGame(const QString& ip, int port);
 
+
     bool turn() const { return gameBoard.turn; }
     bool inCheck() const { return gameBoard.in_check; }
     bool isGameOver() const { return gameBoard.end; }
     bool promotionFlag() const { return gameBoard.promotionFlag; }
-
+    QString currentTurnStatus() const { return gameBoard.turn ? "White's Turn" : "Black's Turn"; }
     QList<QObject*> pieces() const { return m_wrappedPieces; }
     QList<QObject*> updatePiecesPositions();
     NetworkManager* getNetworkManager() const { return networkManager; }
