@@ -31,8 +31,8 @@ Window {
 
             Rectangle{
                 id: logoRectangle
-                width: mainMenu.width * 0.75
-                height: mainMenu.height * 0.2
+                width: mainMenu.width * 0.75 > 600 ? 600 : mainMenu.width * 0.75
+                height: logoRectangle.width / 3.5
                 anchors.horizontalCenter: mainMenu.horizontalCenter
                 anchors.top: mainMenu.top
                 anchors.topMargin: mainMenu.height * 0.08
