@@ -1,0 +1,2 @@
+C:/Users/WinVM/Downloads/Chess_QT6-main/Chess_QT6-main/build/Desktop_Qt_6_9_1_MinGW_64_bit-Release/appChess_QT6_autogen/include/../EWIEGA46WW/moc_ChessWrappers.cpp.json
+C:/Users/WinVM/Downloads/Chess_QT6-main/Chess_QT6-main/build/Desktop_Qt_6_9_1_MinGW_64_bit-Release/appChess_QT6_autogen/include/../EWIEGA46WW/moc_NetworkManager.cpp.json

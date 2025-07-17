@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="/Chess_QT6/">
+    <file alias="mainMenu.qml">C:/Users/WinVM/Downloads/Chess_QT6/mainMenu.qml</file>
+    <file alias="hostMultiplayer.qml">C:/Users/WinVM/Downloads/Chess_QT6/hostMultiplayer.qml</file>
+    <file alias="joinMultiplayer.qml">C:/Users/WinVM/Downloads/Chess_QT6/joinMultiplayer.qml</file>
+    <file alias="board.qml">C:/Users/WinVM/Downloads/Chess_QT6/board.qml</file>
+    <file alias="aiboard.qml">C:/Users/WinVM/Downloads/Chess_QT6/aiboard.qml</file>
+    <file alias="assets/logo.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/logo.png</file>
+    <file alias="assets/blackbishop.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/blackbishop.png</file>
+    <file alias="assets/blackking.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/blackking.png</file>
+    <file alias="assets/blackknight.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/blackknight.png</file>
+    <file alias="assets/blackpawn.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/blackpawn.png</file>
+    <file alias="assets/blackqueen.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/blackqueen.png</file>
+    <file alias="assets/blackrook.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/blackrook.png</file>
+    <file alias="assets/whitebishop.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/whitebishop.png</file>
+    <file alias="assets/whiteking.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/whiteking.png</file>
+    <file alias="assets/whiteknight.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/whiteknight.png</file>
+    <file alias="assets/whitepawn.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/whitepawn.png</file>
+    <file alias="assets/whitequeen.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/whitequeen.png</file>
+    <file alias="assets/whiterook.png">C:/Users/WinVM/Downloads/Chess_QT6/assets/whiterook.png</file>
+  </qresource>
+</RCC>
+

@@ -1,0 +1,4 @@
+module Chess_QT6
+typeinfo appChess_QT6.qmltypes
+prefer :/Chess_QT6/
+

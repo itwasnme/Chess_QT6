@@ -1,0 +1,14 @@
+-rootPath
+C:/Users/WinVM/Downloads/Chess_QT6
+-cmake-output
+-output-file
+C:/Users/WinVM/Downloads/Chess_QT6-main/Chess_QT6-main/build/Desktop_Qt_6_9_1_MinGW_64_bit-Release/.qt/qml_imports/appChess_QT6_build.cmake
+-importPath
+C:/Users/WinVM/Downloads/Chess_QT6-main/Chess_QT6-main/build/Desktop_Qt_6_9_1_MinGW_64_bit-Release/Chess_QT6
+-importPath
+C:/Users/WinVM/Downloads/Chess_QT6-main/Chess_QT6-main/build/Desktop_Qt_6_9_1_MinGW_64_bit-Release
+-importPath
+C:/Qt/6.9.1/mingw_64/qml
+-qrcFiles
+C:/Users/WinVM/Downloads/Chess_QT6-main/Chess_QT6-main/build/Desktop_Qt_6_9_1_MinGW_64_bit-Release/.qt/rcc/qmake_Chess_QT6.qrc
+C:/Users/WinVM/Downloads/Chess_QT6-main/Chess_QT6-main/build/Desktop_Qt_6_9_1_MinGW_64_bit-Release/.qt/rcc/appChess_QT6_raw_qml_0.qrc
